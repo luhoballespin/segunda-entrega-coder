@@ -1,0 +1,8 @@
+<h1>Lista de Productos (Estatica)</h1>
+<ul>
+    {{#each products}}
+        <li>ID: {{this.id}} - Nombre: {{this.name}} - Precio: ${{this.price}}</li>
+    {{/each}}
+</ul>
+<br>
+<a href="/realtimeproducts">Ir a Vista en Tiempo Real</a>

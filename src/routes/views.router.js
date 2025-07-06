@@ -10,7 +10,8 @@ router.get('/', (req, res) => {
 
 // Vista "realTimeProducts.handlebars"
 router.get('/realtimeproducts', (req, res) => {
-    res.render('realTimeProducts', {}); // No pasamos productos inicialmente, se cargarán con WebSockets
+    const products = productManager.getProducts();
+    res.render('realTimeProducts', { title: 'Productos en Tiempo Real', products });
 });
 
 module.exports = router;

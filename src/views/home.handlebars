@@ -1,8 +1,20 @@
-<h1>Lista de Productos (Estatica)</h1>
-<ul>
-    {{#each products}}
-        <li>ID: {{this.id}} - Nombre: {{this.name}} - Precio: ${{this.price}}</li>
-    {{/each}}
-</ul>
-<br>
-<a href="/realtimeproducts">Ir a Vista en Tiempo Real</a>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <h1>Lista de Productos (Estatica)</h1>
+  <ul class="product-list">
+      {{#each products}}
+          <li>ID: {{this.id}} - Nombre: {{this.name}} - Precio: ${{this.price}} - Descripción: {{this.description}}</li>
+      {{/each}}
+  </ul>
+  <br>
+  <a href="/realtimeproducts">Ir a Vista en Tiempo Real</a>
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/home.js"></script>
+</html>

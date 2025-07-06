@@ -30,7 +30,7 @@ app.use('/api/products', productsRouter); // Para la API RESTful de productos
 // --- Socket.IO setup ---
 // Variable global para io, para poder usarla en las rutas si es necesario
 // PERO, la consigna dice: "Si se desea hacer la conexión de socket emits con HTTP,
-// deberás buscar la forma de utilizar el servidor io de Sockets dentro de la petición POST."
+// deberá buscar la forma de utilizar el servidor io de Sockets dentro de la petición POST."
 // Esto lo manejaremos más adelante en products.router.js
 app.set('socketio', io); // Pasar la instancia de io a Express para accederla en rutas
 
@@ -59,6 +59,8 @@ io.on('connection', (socket) => {
             console.log(`Producto con ID ${productId} no encontrado para eliminar.`);
         }
     });
+
+   
 
     socket.on('disconnect', () => {
         console.log('Cliente desconectado');

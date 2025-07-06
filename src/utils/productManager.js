@@ -31,6 +31,7 @@ const addProduct = (product) => {
 };
 
 const deleteProduct = (id) => {
+    id = Number(id); // Asegura que el id sea numérico
     let products = getProducts();
     const initialLength = products.length;
     products = products.filter(p => p.id !== id);

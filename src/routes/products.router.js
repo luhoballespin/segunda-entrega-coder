@@ -12,7 +12,7 @@ router.post('/', (req, res) => {
     const newProductData = req.body;
     const newProduct = productManager.addProduct(newProductData);
 
-    // --- Aquí es donde usas Socket.IO desde una ruta HTTP ---
+    // --- usamos Socket.IO desde una ruta HTTP ---
     const io = req.app.get('socketio'); // Obtenemos la instancia de io
     io.emit('updateProducts', productManager.getProducts()); // Emitimos a todos los clientes
 
@@ -25,7 +25,7 @@ router.delete('/:id', (req, res) => {
     const success = productManager.deleteProduct(productId);
 
     if (success) {
-        // --- Aquí es donde usas Socket.IO desde una ruta HTTP ---
+        // --- hacemos uso nuevamente de Socket.IO desde una ruta HTTP ---
         const io = req.app.get('socketio'); // Obtenemos la instancia de io
         io.emit('updateProducts', productManager.getProducts()); // Emitimos a todos los clientes
 
@@ -35,16 +35,6 @@ router.delete('/:id', (req, res) => {
     }
 });
 
-// GET product by ID (optional)
-router.get('/:id', (req, res) => {
-    const productId = parseInt(req.params.id);
-    const products = productManager.getProducts();
-    const product = products.find(p => p.id === productId);
-    if (product) {
-        res.json(product);
-    } else {
-        res.status(404).json({ message: 'Producto no encontrado.' });
-    }
-});
+
 
 module.exports = router;

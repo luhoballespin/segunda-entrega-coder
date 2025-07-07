@@ -16,6 +16,7 @@ const renderProducts = (products) => {
                 <span class="product-name">${product.name}</span>
                 <span class="product-price">$${product.price}</span>
                 <span class="product-description">${product.description || 'N/A'}</span>
+                <button class="delete-btn" data-id="${product.id}">Eliminar</button>
             `;
             productList.appendChild(li);
         });
@@ -39,10 +40,18 @@ productForm.addEventListener('submit', (e) => {
     productForm.reset();
 });
 
-// Eliminar producto
+// Eliminar producto desde el formulario manual
 deleteForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const productId = Number(document.getElementById('productId').value);
     socket.emit('deleteProduct', productId);
     deleteForm.reset();
+});
+
+// Eliminar producto desde el botón individual
+productList.addEventListener('click', (e) => {
+    if (e.target.classList.contains('delete-btn')) {
+        const id = Number(e.target.getAttribute('data-id'));
+        socket.emit('deleteProduct', id);
+    }
 });

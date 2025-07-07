@@ -9,7 +9,12 @@
   <h1>Lista de Productos (Estatica)</h1>
   <ul class="product-list">
       {{#each products}}
-          <li>ID: {{this.id}} - Nombre: {{this.name}} - Precio: ${{this.price}} - Descripción: {{this.description}}</li>
+          <li class="product-item">
+              <div><strong>ID:</strong> {{this.id}}</div>
+              <div><strong>Nombre:</strong> {{this.name}}</div>
+              <div><strong>Precio:</strong> ${{this.price}}</div>
+              <div><strong>Descripción:</strong> {{this.description}}</div>
+          </li>
       {{/each}}
   </ul>
   <br>

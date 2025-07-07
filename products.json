@@ -7,8 +7,32 @@
   },
   {
     "id": 3,
-    "name": "asd",
-    "price": 21,
-    "description": "asd"
+    "name": "coca cola",
+    "price": 3000,
+    "description": "bebida cola"
+  },
+  {
+    "id": 4,
+    "name": "termo",
+    "price": 12000,
+    "description": "para agua caliente y fria"
+  },
+  {
+    "id": 5,
+    "name": "galletas",
+    "price": 2000,
+    "description": "galletas de agua"
+  },
+  {
+    "id": 6,
+    "name": "palta",
+    "price": 7000,
+    "description": "verdura"
+  },
+  {
+    "id": 7,
+    "name": "cepillo de dientes ",
+    "price": 2000,
+    "description": "marca oral-b"
   }
 ]
